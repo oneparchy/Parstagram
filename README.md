@@ -32,7 +32,7 @@ The following additional features are implemented
 
 Here's a walkthrough of implemented user stories
 
-img src='https://github.com/oneparchy/Parstagram/blob/master/RHP-CP_IG-part1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' 
+<img src='https://github.com/oneparchy/Parstagram/blob/master/RHP-CP_IG-part1.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough'><br> 
 
 GIF created with [LiceCap](httpwww.cockos.comlicecap).
 
