@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error making post", Toast.LENGTH_SHORT).show()
             } else {
                 Log.i(TAG, "Successfully made post!")
+                Toast.makeText(this, "Successfully posted!", Toast.LENGTH_SHORT).show()
                 findViewById<EditText>(R.id.etDescription).setText("")
                 findViewById<ImageView>(R.id.ivPicture).setImageBitmap(null)
             }

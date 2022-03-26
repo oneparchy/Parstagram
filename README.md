@@ -1,17 +1,17 @@
-# Project 3 - Name of App Here
+# Project 3 - Parstagram
 
-Name of your app is a photo sharing app similar to Instagram but using Parse as its backend.
+Parstagram is a photo sharing app similar to Instagram but using Parse as its backend.
 
-Time spent X hours spent in total
+Time spent 6 hours spent in total
 
 ## User Stories
 
 The following required functionality is completed
 
-- [ ] User can sign up to create a new account using Parse authentication.
-- [ ] User can log in and log out of his or her account.
-- [ ] The current signed in user is persisted across app restarts.
-- [ ] User can take a photo, add a caption, and post it to Instagram.
+- [x] User can sign up to create a new account using Parse authentication.
+- [x] User can log in and log out of his or her account.
+- [x] The current signed in user is persisted across app restarts.
+- [x] User can take a photo, add a caption, and post it to Instagram.
 
 The following optional features are implemented
 
@@ -21,19 +21,25 @@ The following optional features are implemented
 
 The following additional features are implemented
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
+- Password input field on Login Activity masks characters after they are entered
+- Added a logout button on the main activity to allow users to logout/switch user
+- Clear/Reset post text field & imageview image after successfully making a post
+- Moved API keys to a separate file not published to git
+- Each activity resizes automatically when the virtual keyboard is open
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories
 
-img src='httpi.imgur.comlinktoyourgiffile.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' 
+img src='https://github.com/oneparchy/Parstagram/blob/master/RHP-CP_IG-part1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' 
 
 GIF created with [LiceCap](httpwww.cockos.comlicecap).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- Some issues with Parse/Back4App, wasn't able to run a test API call because the button was greyed out, but other than that nothing major
 
 ## Open-source libraries used
 
