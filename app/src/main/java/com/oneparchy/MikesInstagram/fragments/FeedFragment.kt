@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.oneparchy.MikesInstagram.MainActivity
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.oneparchy.MikesInstagram.PostAdapter
 import com.oneparchy.MikesInstagram.R
 import com.oneparchy.MikesInstagram.models.Post
@@ -22,6 +22,7 @@ open class FeedFragment : Fragment() {
         private val TAG="FeedFragment"
     }
 
+    lateinit var swipeContainer: SwipeRefreshLayout
     lateinit var rvPosts: RecyclerView
     lateinit var adapter: PostAdapter
     var allPosts: MutableList<Post> = mutableListOf()
@@ -36,6 +37,17 @@ open class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Swipe to refresh
+        swipeContainer = view.findViewById(R.id.swipeContainer)
+        swipeContainer.setOnRefreshListener {
+            Log.i(TAG,"Refreshing Feed")
+            queryPosts()
+        }
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+            android.R.color.holo_green_light,
+            android.R.color.holo_orange_light,
+            android.R.color.holo_red_light)
 
         rvPosts = view.findViewById<RecyclerView>(R.id.rvPosts)
 
@@ -66,6 +78,7 @@ open class FeedFragment : Fragment() {
                         }
                         allPosts.addAll(posts)
                         adapter.notifyDataSetChanged()
+                        swipeContainer.isRefreshing = false
                     }
                 }
             }

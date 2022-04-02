@@ -35,6 +35,7 @@ class ProfileFragment: FeedFragment() {
                         }
                         allPosts.addAll(posts)
                         adapter.notifyDataSetChanged()
+                        swipeContainer.isRefreshing = false
                     }
                 }
             }

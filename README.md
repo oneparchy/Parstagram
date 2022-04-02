@@ -4,7 +4,7 @@
 
 ## Instagram part 2
 
-Time spent: **X** hours spent in total
+Time spent: **9** hours spent in total
 
 ## User Stories
 
@@ -17,7 +17,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] User sees app icon in home screen and styled bottom navigation view
-- [ ] Style the feed to look like the real Instagram feed.
+- [x] Style the feed to look like the real Instagram feed.
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 - [ ] Show the username and creation time for each post.
 - [ ] User can tap a post to view post details, including timestamp and caption.
@@ -30,19 +30,21 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
+- Added custom icon (royalty-free with annotation)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
+<img src='https://github.com/oneparchy/Parstagram/blob/master/RHP-CP_IG-part2.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- Had major issues trying to access the createdAt field in Back4App and convert it to a well-readable time format
 
 ## Open-source libraries used
 
