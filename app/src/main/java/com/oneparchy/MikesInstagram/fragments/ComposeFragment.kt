@@ -26,6 +26,10 @@ import java.io.File
 
 class ComposeFragment : Fragment() {
 
+    companion object {
+        val TAG = "ProfileFragment"
+    }
+
     val CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034
     val photoFileName = "photo.jpg"
     var photoFile: File? = null
@@ -54,7 +58,7 @@ class ComposeFragment : Fragment() {
             if (photoFile != null) {
                 submitPost(description, user, photoFile!!)
             } else {
-                Log.i(MainActivity.TAG, "No image taken for post")
+                Log.i(TAG, "No image taken for post")
                 Toast.makeText(requireContext(), "Take a picture first!", Toast.LENGTH_SHORT).show()
             }
         }
@@ -75,7 +79,7 @@ class ComposeFragment : Fragment() {
                 e.printStackTrace()
                 Toast.makeText(requireContext(), "Error making post", Toast.LENGTH_SHORT).show()
             } else {
-                Log.i(MainActivity.TAG, "Successfully made post!")
+                Log.i(TAG, "Successfully made post!")
                 Toast.makeText(requireContext(), "Successfully posted!", Toast.LENGTH_SHORT).show()
                 etDescription.setText("")
                 ivPreview.setImageBitmap(null)
@@ -116,11 +120,11 @@ class ComposeFragment : Fragment() {
         // Use `getExternalFilesDir` on Context to access package-specific directories.
         // This way, we don't need to request external read/write runtime permissions.
         val mediaStorageDir =
-            File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), MainActivity.TAG)
+            File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG)
 
         // Create the storage directory if it does not exist
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
-            Log.d(MainActivity.TAG, "failed to create directory")
+            Log.d(TAG, "failed to create directory")
         }
 
         // Return the file target for the photo based on filename

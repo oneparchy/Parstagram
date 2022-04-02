@@ -1,56 +1,25 @@
 package com.oneparchy.MikesInstagram.fragments
 
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.oneparchy.MikesInstagram.MainActivity
-import com.oneparchy.MikesInstagram.PostAdapter
-import com.oneparchy.MikesInstagram.R
 import com.oneparchy.MikesInstagram.models.Post
 import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
+import com.parse.ParseUser
 
-open class FeedFragment : Fragment() {
+class ProfileFragment: FeedFragment() {
 
     companion object {
-        private val TAG="FeedFragment"
+        val TAG = "ProfileFragment"
     }
 
-    lateinit var rvPosts: RecyclerView
-    lateinit var adapter: PostAdapter
-    var allPosts: MutableList<Post> = mutableListOf()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        rvPosts = view.findViewById<RecyclerView>(R.id.rvPosts)
-
-        adapter = PostAdapter(requireContext(), allPosts)
-        rvPosts.adapter = adapter
-        rvPosts.layoutManager = LinearLayoutManager(requireContext())
-
-        queryPosts()
-    }
-
-    open fun queryPosts() {
+    override fun queryPosts() {
         //Specify which class to query
         val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
         //Find all the Post objects (including author)
         query.include(Post.KEY_USR)
+        //return only posts made by the currently signed in user
+        query.whereEqualTo(Post.KEY_USR,ParseUser.getCurrentUser())
         //return only the 20 latest posts, from newest to oldest
         query.setLimit(20)
         query.addDescendingOrder("createdAt")
