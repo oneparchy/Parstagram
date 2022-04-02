@@ -15,6 +15,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.oneparchy.MikesInstagram.models.Post
 import com.parse.*
 import java.io.File
@@ -39,6 +40,26 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnTakePicture).setOnClickListener {
             onLaunchCamera()
+        }
+
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+            //instantiate variable passed in as item (default = "it")
+            item ->
+            when (item.itemId) {
+                R.id.actionHome -> {
+                    Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
+                }
+                R.id.actionCompose -> {
+                    Toast.makeText(this,"Compose",Toast.LENGTH_SHORT).show()
+                }
+                R.id.actionProfile -> {
+                    Toast.makeText(this,"Profile",Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+            //Return true to signify that we have handled this user interaction
+            true
         }
 
         findViewById<Button>(R.id.btnSubmit).setOnClickListener {
