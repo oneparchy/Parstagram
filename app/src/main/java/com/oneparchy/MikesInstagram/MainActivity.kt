@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.actionProfile -> {
                     Toast.makeText(this,"Profile",Toast.LENGTH_SHORT).show()
                 }
-
             }
 
             //Return true to signify that we have handled this user interaction
